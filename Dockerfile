@@ -11,9 +11,11 @@ RUN echo "Asia/Shanghai" > /etc/timezone
 ENV JAVA_HOME /usr/java/jdk/jdk1.8.0_251
 COPY jstatd.all.policy ${JAVA_HOME}/bin
 
-ENV PINPOINT_COLLECTOR_IP 127.0.0.1
-ENV JAVA_APP default
-ENV JAVA_OPTIONS "-javaagent:/pinpoint/agent/pinpoint-agent-2.2.0/pinpoint-bootstrap-2.2.0.jar -Dpinpoint.agentId=${JAVA_APP} -Dpinpoint.applicationName=${JAVA_APP} -Dprofiler.transport.grpc.collector.ip=${PINPOINT_COLLECTOR_IP}"
+ENV pinpoint.agentId default
+ENV pinpoint.applicationName default
+ENV profiler.transport.grpc.collector.ip 127.0.0.1
+ENV JAVA_AGENT -javaagent:/pinpoint/agent/pinpoint-agent-2.2.0/pinpoint-bootstrap-2.2.0.jar
+
 ENV PATH ${PATH}:${JAVA_HOME}/bin
 
 RUN apk update \
