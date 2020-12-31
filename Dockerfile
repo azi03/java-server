@@ -11,10 +11,10 @@ RUN echo "Asia/Shanghai" > /etc/timezone
 ENV JAVA_HOME /usr/java/jdk/jdk1.8.0_251
 COPY jstatd.all.policy ${JAVA_HOME}/bin
 
-ENV pinpoint.agentId default
-ENV pinpoint.applicationName default
-ENV profiler.transport.grpc.collector.ip 127.0.0.1
-ENV JAVA_AGENT -javaagent:/pinpoint/agent/pinpoint-agent-2.2.0/pinpoint-bootstrap-2.2.0.jar
+ENV PINPOINT_AGENT_ID default
+ENV PINPOINT_APP_NAME default
+ENV PINPOINT_COLLECTOR_IP 127.0.0.1
+ENV PINPOINT_OPTIONS -javaagent:/pinpoint/agent/pinpoint-agent-2.2.0/pinpoint-bootstrap-2.2.0.jar -Dpinpoint.agentId=\$PINPOINT_AGENT_ID -Dpinpoint.applicationName=\$PINPOINT_APP_NAME -Dprofiler.transport.grpc.collector.ip=\$PINPOINT_COLLECTOR_IP
 
 ENV PATH ${PATH}:${JAVA_HOME}/bin
 
