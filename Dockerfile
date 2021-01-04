@@ -9,13 +9,13 @@ RUN mkdir -p /usr/share/zoneinfo/Asia \
 	&& ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 	&& echo "Asia/Shanghai" > /etc/timezone
 
-ENV JAVA_HOME /usr/java/jdk/jdk1.8.0_251 \
-	PATH ${PATH}:${JAVA_HOME}/bin \
-	PINPOINT_HOME /pinpoint/agent/pinpoint-agent-2.2.0 \
-	pinpoint.agentId default \
-	pinpoint.applicationName default \
-	profiler.transport.grpc.collector.ip 127.0.0.3 \
-	PINPOINT_OPTIONS -javaagent:$PINPOINT_HOME/pinpoint-bootstrap.jar
+ENV JAVA_HOME=/usr/java/jdk/jdk1.8.0_251 \
+ PATH=${PATH}:${JAVA_HOME}/bin \
+ PINPOINT_HOME=/pinpoint/agent/pinpoint-agent-2.2.0 \
+ pinpoint.agentId=default \
+ pinpoint.applicationName=default \
+ profiler.transport.grpc.collector.ip=127.0.0.3 \
+ PINPOINT_OPTIONS=-javaagent:$PINPOINT_HOME/pinpoint-bootstrap.jar
 
 
 RUN apk update \
