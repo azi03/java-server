@@ -4,9 +4,9 @@ LABEL MAINTAINER="azi<azi03@qq.com>"
 ENV JAVA_HOME=/usr/java/jdk/jdk1.8.0_251 \
  PINPOINT_HOME=/pinpoint/agent/pinpoint-agent-2.2.0
 ENV PATH=${PATH}:${JAVA_HOME}/bin \
- pinpoint.agentId=default \
- pinpoint.applicationName=default \
- profiler.transport.grpc.collector.ip=127.0.0.3 \
+ PINPOINT_AGENT_ID=default \
+ PINPOINT_APPLICATION_NAME=default \
+ PROFILER_TRANSPORT_GRPC_COLLECTOR_IP=127.0.0.3 \
  PINPOINT_OPTIONS=-javaagent:$PINPOINT_HOME/pinpoint-bootstrap.jar
 
 ADD server-jre-8u251-linux-x64.tar.gz $JAVA_HOME/../
