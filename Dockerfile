@@ -16,5 +16,6 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && apk add --no-cache bash \
     	bash-doc \
     	bash-completion \
+	&& cp $JAVA_HOME/jre/lib/security/policy/unlimited/* $JAVA_HOME/jre/lib/security \
     && rm -rf /var/cache/apk/* \
     && /bin/bash
