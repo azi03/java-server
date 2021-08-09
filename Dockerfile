@@ -1,6 +1,10 @@
 FROM frolvlad/alpine-glibc:latest
 LABEL MAINTAINER="azi<azi03@qq.com>"
 
+# 替换阿里云的源
+RUN echo "http://mirrors.aliyun.com/alpine/latest-stable/main/" > /etc/apk/repositories
+RUN echo "http://mirrors.aliyun.com/alpine/latest-stable/community/" >> /etc/apk/repositories
+
 ENV JAVA_HOME=/usr/java/jdk/jdk1.8.0_251
 ENV PATH=${PATH}:${JAVA_HOME}/bin
 ENV TZ=Asia/Shanghai
